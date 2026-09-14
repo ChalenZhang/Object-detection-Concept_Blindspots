@@ -1,0 +1,23 @@
+{
+  "architecture": "fasterrcnn_resnet101_fpn",
+  "classes": [
+    "background",
+    "bicycle",
+    "bus",
+    "car",
+    "motorcycle",
+    "person",
+    "rider",
+    "truck"
+  ],
+  "min_size": 800,
+  "max_size": 1333,
+  "score_threshold": 0.001,
+  "detections_per_image": 300,
+  "proposals_per_class": 100,
+  "spatial_proposals_per_class": 30,
+  "proposal_nms_threshold": 0.5,
+  "evaluation_score_threshold": 0.05,
+  "evaluation_iou_threshold": 0.5,
+  "evaluation_max_detections_per_class": 100
+}

@@ -1,0 +1,1096 @@
+{
+  "clusters": [
+    {
+      "cluster_id": "C3-F01",
+      "class_id": 3,
+      "members": [
+        16,
+        27,
+        32,
+        35,
+        46
+      ],
+      "scale": 26.478330612182617,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F02",
+      "class_id": 3,
+      "members": [
+        7,
+        17,
+        31,
+        59
+      ],
+      "scale": 10.147950172424316,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F03",
+      "class_id": 3,
+      "members": [
+        13,
+        23,
+        51
+      ],
+      "scale": 7.346752166748047,
+      "excess_risk": 0.12157680817176421,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F04",
+      "class_id": 3,
+      "members": [
+        9,
+        11
+      ],
+      "scale": 22.727195739746094,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F05",
+      "class_id": 3,
+      "members": [
+        12,
+        15
+      ],
+      "scale": 7.553979396820068,
+      "excess_risk": 0.07990218743093215,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F06",
+      "class_id": 3,
+      "members": [
+        25,
+        47
+      ],
+      "scale": 5.5982441902160645,
+      "excess_risk": 0.09810849650969806,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F07",
+      "class_id": 3,
+      "members": [
+        30,
+        39
+      ],
+      "scale": 7.719109535217285,
+      "excess_risk": 0.04888949673382099,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F08",
+      "class_id": 3,
+      "members": [
+        38,
+        63
+      ],
+      "scale": 7.3351335525512695,
+      "excess_risk": 0.12469187598039784,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F09",
+      "class_id": 3,
+      "members": [
+        48,
+        56
+      ],
+      "scale": 7.022046089172363,
+      "excess_risk": 0.04458353218828632,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F10",
+      "class_id": 3,
+      "members": [
+        0
+      ],
+      "scale": 6.0628814697265625,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F11",
+      "class_id": 3,
+      "members": [
+        1
+      ],
+      "scale": 4.372300148010254,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F12",
+      "class_id": 3,
+      "members": [
+        2
+      ],
+      "scale": 4.297757148742676,
+      "excess_risk": 0.08778807052092952,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F13",
+      "class_id": 3,
+      "members": [
+        4
+      ],
+      "scale": 6.175681114196777,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F14",
+      "class_id": 3,
+      "members": [
+        5
+      ],
+      "scale": 5.186456680297852,
+      "excess_risk": 0.1336502308937776,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F15",
+      "class_id": 3,
+      "members": [
+        6
+      ],
+      "scale": 4.612667560577393,
+      "excess_risk": 0.10292781473776252,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F16",
+      "class_id": 3,
+      "members": [
+        8
+      ],
+      "scale": 4.669073581695557,
+      "excess_risk": 0.07187173232770662,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F17",
+      "class_id": 3,
+      "members": [
+        14
+      ],
+      "scale": 4.7418999671936035,
+      "excess_risk": 0.02854662193903951,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F18",
+      "class_id": 3,
+      "members": [
+        18
+      ],
+      "scale": 4.590088367462158,
+      "excess_risk": 0.03208026390069069,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F19",
+      "class_id": 3,
+      "members": [
+        20
+      ],
+      "scale": 5.038068771362305,
+      "excess_risk": 0.06408924128996579,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F20",
+      "class_id": 3,
+      "members": [
+        21
+      ],
+      "scale": 5.1906418800354,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F21",
+      "class_id": 3,
+      "members": [
+        24
+      ],
+      "scale": 5.8236083984375,
+      "excess_risk": 0.04445732385023604,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F22",
+      "class_id": 3,
+      "members": [
+        26
+      ],
+      "scale": 5.369193077087402,
+      "excess_risk": 0.06909011379447888,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F23",
+      "class_id": 3,
+      "members": [
+        29
+      ],
+      "scale": 5.417763710021973,
+      "excess_risk": 0.10013070431863838,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F24",
+      "class_id": 3,
+      "members": [
+        33
+      ],
+      "scale": 5.393868446350098,
+      "excess_risk": 0.10472709625260854,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F25",
+      "class_id": 3,
+      "members": [
+        37
+      ],
+      "scale": 5.644794464111328,
+      "excess_risk": 0.031913974690943384,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F26",
+      "class_id": 3,
+      "members": [
+        40
+      ],
+      "scale": 5.196483135223389,
+      "excess_risk": 0.11145688602346096,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F27",
+      "class_id": 3,
+      "members": [
+        42
+      ],
+      "scale": 4.489838600158691,
+      "excess_risk": 0.08892693100120197,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F28",
+      "class_id": 3,
+      "members": [
+        43
+      ],
+      "scale": 5.831984519958496,
+      "excess_risk": 0.012171415497912782,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F29",
+      "class_id": 3,
+      "members": [
+        44
+      ],
+      "scale": 4.547398567199707,
+      "excess_risk": 0.05529047487768855,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F30",
+      "class_id": 3,
+      "members": [
+        45
+      ],
+      "scale": 6.063370227813721,
+      "excess_risk": 0.07577621091369591,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F31",
+      "class_id": 3,
+      "members": [
+        49
+      ],
+      "scale": 4.582521438598633,
+      "excess_risk": 0.19936803140214057,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F32",
+      "class_id": 3,
+      "members": [
+        50
+      ],
+      "scale": 3.794837474822998,
+      "excess_risk": 0.024973014934801432,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F33",
+      "class_id": 3,
+      "members": [
+        52
+      ],
+      "scale": 4.398392200469971,
+      "excess_risk": 0.11292519993408887,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F34",
+      "class_id": 3,
+      "members": [
+        53
+      ],
+      "scale": 5.698797702789307,
+      "excess_risk": 0.036383478522055465,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F35",
+      "class_id": 3,
+      "members": [
+        54
+      ],
+      "scale": 4.474830627441406,
+      "excess_risk": 0.04387059530549047,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F36",
+      "class_id": 3,
+      "members": [
+        55
+      ],
+      "scale": 4.87667989730835,
+      "excess_risk": 0.04471579825684273,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F37",
+      "class_id": 3,
+      "members": [
+        57
+      ],
+      "scale": 6.549705505371094,
+      "excess_risk": 0.05676720430704562,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F38",
+      "class_id": 3,
+      "members": [
+        58
+      ],
+      "scale": 3.8014073371887207,
+      "excess_risk": 0.005391180128875788,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C3-F39",
+      "class_id": 3,
+      "members": [
+        60
+      ],
+      "scale": 6.435892105102539,
+      "excess_risk": 0.07196692613364113,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C3-F40",
+      "class_id": 3,
+      "members": [
+        61
+      ],
+      "scale": 5.181379795074463,
+      "excess_risk": 0.0772537286382627,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C5-F01",
+      "class_id": 5,
+      "members": [
+        9,
+        35,
+        41,
+        47
+      ],
+      "scale": 9.92072868347168,
+      "excess_risk": 0.06982374583655082,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C5-F02",
+      "class_id": 5,
+      "members": [
+        7,
+        52,
+        55,
+        61
+      ],
+      "scale": 9.845871925354004,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F03",
+      "class_id": 5,
+      "members": [
+        15,
+        16,
+        32
+      ],
+      "scale": 28.183895111083984,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F04",
+      "class_id": 5,
+      "members": [
+        19,
+        39,
+        56
+      ],
+      "scale": 7.153888702392578,
+      "excess_risk": 0.05080409859925753,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F05",
+      "class_id": 5,
+      "members": [
+        2,
+        62
+      ],
+      "scale": 5.050646781921387,
+      "excess_risk": 0.0017192919052592469,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F06",
+      "class_id": 5,
+      "members": [
+        5,
+        25
+      ],
+      "scale": 6.114331245422363,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F07",
+      "class_id": 5,
+      "members": [
+        6,
+        36
+      ],
+      "scale": 5.121143817901611,
+      "excess_risk": 0.09146959222550177,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F08",
+      "class_id": 5,
+      "members": [
+        12,
+        37
+      ],
+      "scale": 6.0231852531433105,
+      "excess_risk": 0.008886016447853903,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F09",
+      "class_id": 5,
+      "members": [
+        20,
+        28
+      ],
+      "scale": 6.015946388244629,
+      "excess_risk": 0.04799517750854246,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F10",
+      "class_id": 5,
+      "members": [
+        21,
+        63
+      ],
+      "scale": 7.21993350982666,
+      "excess_risk": 0.027332753424042813,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F11",
+      "class_id": 5,
+      "members": [
+        22,
+        42
+      ],
+      "scale": 5.215311050415039,
+      "excess_risk": 0.004285978665438687,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F12",
+      "class_id": 5,
+      "members": [
+        38,
+        44
+      ],
+      "scale": 7.167027950286865,
+      "excess_risk": 0.03980665905117093,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F13",
+      "class_id": 5,
+      "members": [
+        0
+      ],
+      "scale": 4.997187614440918,
+      "excess_risk": 0.05252427362299339,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F14",
+      "class_id": 5,
+      "members": [
+        1
+      ],
+      "scale": 4.298220634460449,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F15",
+      "class_id": 5,
+      "members": [
+        3
+      ],
+      "scale": 5.823166370391846,
+      "excess_risk": 0.02169220019174712,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F16",
+      "class_id": 5,
+      "members": [
+        4
+      ],
+      "scale": 4.777664661407471,
+      "excess_risk": 0.05593399222669265,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F17",
+      "class_id": 5,
+      "members": [
+        8
+      ],
+      "scale": 4.937083721160889,
+      "excess_risk": 0.082243690068765,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F18",
+      "class_id": 5,
+      "members": [
+        10
+      ],
+      "scale": 5.3241047859191895,
+      "excess_risk": 0.06351973862211278,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F19",
+      "class_id": 5,
+      "members": [
+        11
+      ],
+      "scale": 4.838574409484863,
+      "excess_risk": 0.04336159629878365,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F20",
+      "class_id": 5,
+      "members": [
+        13
+      ],
+      "scale": 5.906822681427002,
+      "excess_risk": 0.039871192449666006,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F21",
+      "class_id": 5,
+      "members": [
+        14
+      ],
+      "scale": 5.964322090148926,
+      "excess_risk": 0.08415527855439454,
+      "blindspot": true
+    },
+    {
+      "cluster_id": "C5-F22",
+      "class_id": 5,
+      "members": [
+        17
+      ],
+      "scale": 5.5880446434021,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F23",
+      "class_id": 5,
+      "members": [
+        23
+      ],
+      "scale": 5.070769309997559,
+      "excess_risk": 0.035034506921574046,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F24",
+      "class_id": 5,
+      "members": [
+        26
+      ],
+      "scale": 6.160792827606201,
+      "excess_risk": 0.010531284346210645,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F25",
+      "class_id": 5,
+      "members": [
+        29
+      ],
+      "scale": 5.873892784118652,
+      "excess_risk": 0.05466330289356768,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F26",
+      "class_id": 5,
+      "members": [
+        30
+      ],
+      "scale": 4.584272861480713,
+      "excess_risk": 0.062219655788641436,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F27",
+      "class_id": 5,
+      "members": [
+        31
+      ],
+      "scale": 4.369897842407227,
+      "excess_risk": 0.04972699290539902,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F28",
+      "class_id": 5,
+      "members": [
+        33
+      ],
+      "scale": 4.4220871925354,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F29",
+      "class_id": 5,
+      "members": [
+        34
+      ],
+      "scale": 6.357154846191406,
+      "excess_risk": 0.0371833125925006,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F30",
+      "class_id": 5,
+      "members": [
+        40
+      ],
+      "scale": 5.301392078399658,
+      "excess_risk": 0.0474921926375509,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F31",
+      "class_id": 5,
+      "members": [
+        45
+      ],
+      "scale": 5.774265289306641,
+      "excess_risk": 0.04363241688833355,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F32",
+      "class_id": 5,
+      "members": [
+        48
+      ],
+      "scale": 5.374383926391602,
+      "excess_risk": 0.022367731568229427,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F33",
+      "class_id": 5,
+      "members": [
+        49
+      ],
+      "scale": 4.551944732666016,
+      "excess_risk": 0.05458661764974195,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F34",
+      "class_id": 5,
+      "members": [
+        53
+      ],
+      "scale": 4.369685173034668,
+      "excess_risk": 0.008283546899450732,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F35",
+      "class_id": 5,
+      "members": [
+        58
+      ],
+      "scale": 5.574772357940674,
+      "excess_risk": 0.06004494110973649,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F36",
+      "class_id": 5,
+      "members": [
+        59
+      ],
+      "scale": 5.8848557472229,
+      "excess_risk": 0.03053790946565793,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C5-F37",
+      "class_id": 5,
+      "members": [
+        60
+      ],
+      "scale": 6.294036388397217,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F01",
+      "class_id": 6,
+      "members": [
+        1,
+        2,
+        32,
+        37,
+        51,
+        61
+      ],
+      "scale": 10.413732528686523,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F02",
+      "class_id": 6,
+      "members": [
+        6,
+        13,
+        41,
+        52,
+        57
+      ],
+      "scale": 9.503363609313965,
+      "excess_risk": 0.06339422003686147,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F03",
+      "class_id": 6,
+      "members": [
+        8,
+        14,
+        16,
+        63
+      ],
+      "scale": 9.046957015991211,
+      "excess_risk": 0.08364224327078484,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F04",
+      "class_id": 6,
+      "members": [
+        5,
+        17,
+        24
+      ],
+      "scale": 8.24380874633789,
+      "excess_risk": 0.04820021075448156,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F05",
+      "class_id": 6,
+      "members": [
+        34,
+        35,
+        55
+      ],
+      "scale": 7.576047420501709,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F06",
+      "class_id": 6,
+      "members": [
+        36,
+        56,
+        60
+      ],
+      "scale": 6.5790839195251465,
+      "excess_risk": 0.021923532730018746,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F07",
+      "class_id": 6,
+      "members": [
+        3,
+        20
+      ],
+      "scale": 5.476013660430908,
+      "excess_risk": 0.014407197194313524,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F08",
+      "class_id": 6,
+      "members": [
+        4,
+        28
+      ],
+      "scale": 7.204578399658203,
+      "excess_risk": 0.00045620686155476277,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F09",
+      "class_id": 6,
+      "members": [
+        9,
+        38
+      ],
+      "scale": 6.2813639640808105,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F10",
+      "class_id": 6,
+      "members": [
+        15,
+        47
+      ],
+      "scale": 6.257529258728027,
+      "excess_risk": 0.06239381437762057,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F11",
+      "class_id": 6,
+      "members": [
+        25,
+        54
+      ],
+      "scale": 5.177682399749756,
+      "excess_risk": 0.0782535088655625,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F12",
+      "class_id": 6,
+      "members": [
+        26,
+        53
+      ],
+      "scale": 7.22902774810791,
+      "excess_risk": 0.07863174208639956,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F13",
+      "class_id": 6,
+      "members": [
+        0
+      ],
+      "scale": 5.11992073059082,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F14",
+      "class_id": 6,
+      "members": [
+        22
+      ],
+      "scale": 4.73996639251709,
+      "excess_risk": 0.046853208291366466,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F15",
+      "class_id": 6,
+      "members": [
+        23
+      ],
+      "scale": 5.618986129760742,
+      "excess_risk": 0.08384364860183237,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F16",
+      "class_id": 6,
+      "members": [
+        27
+      ],
+      "scale": 5.594899654388428,
+      "excess_risk": 0.06746227149623475,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F17",
+      "class_id": 6,
+      "members": [
+        30
+      ],
+      "scale": 6.137424468994141,
+      "excess_risk": 0.04366132477280932,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F18",
+      "class_id": 6,
+      "members": [
+        31
+      ],
+      "scale": 4.836706161499023,
+      "excess_risk": 0.08511802778785811,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F19",
+      "class_id": 6,
+      "members": [
+        40
+      ],
+      "scale": 5.067875385284424,
+      "excess_risk": 0.053805163179594,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F20",
+      "class_id": 6,
+      "members": [
+        43
+      ],
+      "scale": 5.890213966369629,
+      "excess_risk": 0.1157273582266457,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F21",
+      "class_id": 6,
+      "members": [
+        44
+      ],
+      "scale": 4.743851184844971,
+      "excess_risk": 0.0,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F22",
+      "class_id": 6,
+      "members": [
+        48
+      ],
+      "scale": 5.064477920532227,
+      "excess_risk": 0.0417413120068695,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F23",
+      "class_id": 6,
+      "members": [
+        49
+      ],
+      "scale": 6.284130573272705,
+      "excess_risk": 0.10561157942735583,
+      "blindspot": false
+    },
+    {
+      "cluster_id": "C6-F24",
+      "class_id": 6,
+      "members": [
+        59
+      ],
+      "scale": 5.632482528686523,
+      "excess_risk": 0.08827642229016214,
+      "blindspot": false
+    }
+  ],
+  "blindspot_ids": [
+    "C3-F03",
+    "C3-F05",
+    "C3-F06",
+    "C3-F08",
+    "C3-F12",
+    "C3-F14",
+    "C3-F15",
+    "C3-F23",
+    "C3-F24",
+    "C3-F26",
+    "C3-F27",
+    "C3-F31",
+    "C3-F33",
+    "C3-F39",
+    "C3-F40",
+    "C5-F01",
+    "C5-F21"
+  ],
+  "pooling": [
+    "max",
+    "top3_mean",
+    "confidence_weighted_max",
+    "confidence_weighted_top3_mean"
+  ]
+}
