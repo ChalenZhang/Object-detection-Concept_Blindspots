@@ -1,6 +1,6 @@
 # Data Preparation and Evaluation
 
-Dataset providers and original papers are linked in the [dataset table](../README.md#datasets). Download images and annotations from the providers, not from this repository.
+Dataset providers and original papers are linked in the [dataset table](../README.md#datasets). The [RealDriveSim subset](realdrivesim/README.md) is available from this repository's dataset release; obtain other datasets from their original providers.
 
 ## Evaluation Subsets
 

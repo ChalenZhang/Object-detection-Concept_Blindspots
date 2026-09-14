@@ -64,10 +64,14 @@ For copyright, privacy, or other rights concerns about this illustration or any 
 | Cityscapes | [The Cityscapes Dataset for Semantic Urban Scene Understanding](https://openaccess.thecvf.com/content_cvpr_2016/html/Cordts_The_Cityscapes_Dataset_CVPR_2016_paper.html) | [Website](https://www.cityscapes-dataset.com/) |
 | BDD100K | [BDD100K: A Diverse Driving Dataset for Heterogeneous Multitask Learning](https://openaccess.thecvf.com/content_CVPR_2020/html/Yu_BDD100K_A_Diverse_Driving_Dataset_for_Heterogeneous_Multitask_Learning_CVPR_2020_paper.html) | [Website](https://www.bdd100k.com/) |
 | KITTI | [Are We Ready for Autonomous Driving? The KITTI Vision Benchmark Suite](https://www.cvlibs.net/publications/Geiger2012CVPR.pdf) | [Website](https://www.cvlibs.net/datasets/kitti/) |
-| RealDriveSim | [RealDriveSim: A Realistic Multi-Modal Multi-Task Synthetic Dataset for Autonomous Driving](https://arxiv.org/abs/2506.16319) | [Website](https://realdrivesim.github.io/) |
+| RealDriveSim | [RealDriveSim: A Realistic Multi-Modal Multi-Task Synthetic Dataset for Autonomous Driving](https://arxiv.org/abs/2506.16319) | [Website](https://realdrivesim.github.io/), [6,000-image subset](data/realdrivesim/README.md) |
 | SIM10K | [Driving in the Matrix: Can Virtual Worlds Replace Human-Generated Annotations for Real World Tasks?](https://arxiv.org/abs/1610.01983) | [Website](https://fcav.engin.umich.edu/projects/driving-in-the-matrix) |
 | Foggy Cityscapes | [Semantic Foggy Scene Understanding with Synthetic Data](https://arxiv.org/abs/1708.07819) | [Website](https://people.ee.ethz.ch/~csakarid/SFSU_synthetic/) |
 | Rainy Cityscapes | [Depth-Attentional Features for Single-Image Rain Removal](https://openaccess.thecvf.com/content_CVPR_2019/html/Hu_Depth-Attentional_Features_for_Single-Image_Rain_Removal_CVPR_2019_paper.html) | [Website](https://www.cityscapes-dataset.com/downloads/) |
+
+### RealDriveSim 6,000-Image Subset
+
+Our extracted [RealDriveSim](https://realdrivesim.github.io/) pool contains **6,000 original images: 2,520 Day, 2,580 Adverse-A, and 900 Adverse-B**. The [dataset release](../../releases/tag/realdrivesim-6000-v1.0) provides these images and their detection labels as separate ZIP parts. Download and extract all parts into the same directory. The [subset guide](data/realdrivesim/README.md) includes the complete image list, label format, and evaluation commands. Images retain their stored resolution and are not style-transferred. The subset is redistributed under the original [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/), with attribution to the dataset authors.
 
 ## Terms
 

@@ -5,5 +5,7 @@ __pycache__/
 models/
 statistics/
 outputs/
+datasets/
+downloads/
 *.zip
 *.tar.gz

@@ -1,0 +1,76 @@
+{
+  "release": "realdrivesim-6000-v1.0",
+  "images": 6000,
+  "components": {
+    "Day": 2520,
+    "Adverse_A": 2580,
+    "Adverse_B": 900
+  },
+  "parts": [
+    {
+      "file": "realdrivesim-6000-part01.zip",
+      "images": 762,
+      "components": {
+        "Adverse_A": 762
+      }
+    },
+    {
+      "file": "realdrivesim-6000-part02.zip",
+      "images": 739,
+      "components": {
+        "Adverse_A": 739
+      }
+    },
+    {
+      "file": "realdrivesim-6000-part03.zip",
+      "images": 748,
+      "components": {
+        "Adverse_A": 748
+      }
+    },
+    {
+      "file": "realdrivesim-6000-part04.zip",
+      "images": 775,
+      "components": {
+        "Adverse_A": 331,
+        "Adverse_B": 444
+      }
+    },
+    {
+      "file": "realdrivesim-6000-part05.zip",
+      "images": 687,
+      "components": {
+        "Adverse_B": 456,
+        "Day": 231
+      }
+    },
+    {
+      "file": "realdrivesim-6000-part06.zip",
+      "images": 588,
+      "components": {
+        "Day": 588
+      }
+    },
+    {
+      "file": "realdrivesim-6000-part07.zip",
+      "images": 598,
+      "components": {
+        "Day": 598
+      }
+    },
+    {
+      "file": "realdrivesim-6000-part08.zip",
+      "images": 568,
+      "components": {
+        "Day": 568
+      }
+    },
+    {
+      "file": "realdrivesim-6000-part09.zip",
+      "images": 535,
+      "components": {
+        "Day": 535
+      }
+    }
+  ]
+}
