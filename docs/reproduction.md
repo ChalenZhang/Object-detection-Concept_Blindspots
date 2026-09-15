@@ -18,7 +18,7 @@ Inference averages the predicted Car+Person missed-object counts across three ri
 | `targets/*.pt` | Per-image pooled summaries, missed counts, and frozen comparison scores | Six-domain risk ranking |
 | `interventions/*.csv.gz` | Before/after classification outputs, matched control identifiers, doses, and scene indices | Intervention summaries |
 
-These statistics reproduce the downstream numerical analysis, not a pixel-identical regeneration of the commercially produced style images. They contain no spatial feature maps or per-object RoI feature bank. Inference on locally obtained images uses the complete model package.
+Use the statistics package to reproduce the downstream numerical analysis, and the model package for inference on locally obtained images.
 
 ## Intervention Records
 

@@ -48,7 +48,7 @@ python scripts/evaluate_predictions.py --predictions outputs/realdrivesim.pt \
   --annotations datasets/realdrivesim-6000/annotations.json
 ```
 
-The evaluation manifest is unchanged. Releasing the full image pool does not change previously reported results. To obtain predictions for all 6,000 images, omit `--manifest`.
+To obtain predictions for all 6,000 images, omit `--manifest`.
 
 ## Source and License
 
