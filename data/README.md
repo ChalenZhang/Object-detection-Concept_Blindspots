@@ -15,7 +15,7 @@ For the 20-style source bank, see the **[Cityscapes license and generation guide
 | `splits/foggy.json` | Validation scenes, beta 0.02 | 500 |
 | `splits/rainy.json` | Alpha 0.02; 12 rain textures for each of 33 scenes | 396 |
 
-The manifests preserve the exact row order used for evaluation. RealDriveSim was drawn from a 6,000-image pool containing 2,520 Day, 2,580 Adverse-A, and 900 Adverse-B images; the manifest specifies the images retained by the recorded evaluation. Rainy and Foggy are appearance-shift tests on source scenes, not independent-scene benchmarks. Rainy views of one scene share a scene index.
+Manifests specify evaluation images and row order. The RealDriveSim manifest selects from the [6,000-image subset](realdrivesim/README.md). Rainy and Foggy test appearance changes on Cityscapes validation scenes; Rainy views of one scene share a scene index.
 
 ## Local Image Inference
 
@@ -39,13 +39,13 @@ The evaluation script accepts a local detection JSON with the following standard
 }
 ```
 
-Boxes use absolute pixel coordinates `[left, top, width, height]`. Image filenames must be unique within the selected manifest. Category IDs are mapped by names, rather than assumed to match detector IDs. `Pedestrian` and `Person_sitting` map to `person`; `Cyclist` maps to `rider`. Other aliases are specified in the evaluator. Crowd annotations are excluded.
+Boxes use absolute pixel coordinates `[left, top, width, height]`. Image filenames must be unique within the selected manifest. Categories are mapped by name: `Pedestrian` and `Person_sitting` become `person`; `Cyclist` becomes `rider`. Other aliases are specified in the evaluator. Crowd annotations are excluded.
 
 ```bash
 python scripts/evaluate_predictions.py --predictions outputs/kitti.pt \
   --annotations /path/to/kitti_annotations.json
 ```
 
-Evaluation uses Car and Person, except SIM10K, whose distributed detection annotations cover Car. Select `--groups car` for that endpoint. The risk predictor itself remains unchanged.
+Evaluation uses Car and Person, except SIM10K, whose detection annotations cover Car. Select `--groups car` for SIM10K.
 
-The detector's internal IDs are background 0, bicycle 1, bus 2, car 3, motorcycle 4, person 5, rider 6, and truck 7. Use the original label semantics when converting annotations: KITTI pedestrians must not be silently dropped, and unannotated SIM10K people must not be counted as negative examples.
+The detector's internal IDs are background 0, bicycle 1, bus 2, car 3, motorcycle 4, person 5, rider 6, and truck 7.

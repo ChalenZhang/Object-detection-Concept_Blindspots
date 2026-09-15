@@ -6,7 +6,7 @@
 
 Each of 101 clusters contributes four image summaries: maximum activation, mean of the three largest activations, and the corresponding confidence-weighted values. The 17 blindspots retain their individual identities through an additional copy of their 68 channels. The MLP maps the resulting 472 inputs through layers of width 256 and 128 with GELU and dropout 0.1. Its three heads learn missed-object occurrence, log missed-object count, and log detection-quality deficit for five class groups. Training combines binary cross-entropy, smooth-L1 count loss, quality loss weighted by 0.5, and a pairwise ranking loss weighted by 0.2.
 
-Inference averages the predicted Car+Person missed-object counts across three risk predictors. The score is a ranking signal, not a calibrated probability. The same score is used on all domains, including the Car-only SIM10K endpoint.
+Images are ranked by the mean predicted Car+Person missed-object count across three risk predictors. This scoring rule is shared across all domains.
 
 ## Statistics Package
 
@@ -18,13 +18,11 @@ Inference averages the predicted Car+Person missed-object counts across three ri
 | `targets/*.pt` | Per-image pooled summaries, missed counts, and frozen comparison scores | Six-domain risk ranking |
 | `interventions/*.csv.gz` | Before/after classification outputs, matched control identifiers, doses, and scene indices | Intervention summaries |
 
-Use the statistics package to reproduce the downstream numerical analysis, and the model package for inference on locally obtained images.
-
 ## Intervention Records
 
 All 17 frozen R101 blindspots and all 16 frozen R50 blindspots are retained. For an eligible paired object, the intervention moves one cluster's contribution toward its ORIGIN value while preserving the remaining feature residual and all other activations. Excess events have a styled-to-source contribution projection ratio at least 1.5; missing-activation events have a ratio at most 0.5. The four doses are 0.25, 0.5, 0.75, and 1.0. Opposite, shuffled-source, normal-cluster, and random directions are matched in feature-change norm.
 
-`summarize_interventions.py` reports every cluster, mechanism, dose, and control, including negative effects. Margin gain is the change in the correct-class logit minus its strongest competitor. Top-1 net recovery is the fraction changing from wrong to correct minus the fraction changing from correct to wrong. The full-dose paired restoration includes 5,000 scene-bootstrap confidence intervals. These are frozen-head diagnostic results, not detector mAP improvements or an automatic image-level repair method.
+`summarize_interventions.py` reports signed effects for every cluster, mechanism, dose, and control at the frozen classification head. Margin gain is the change in the correct-class logit minus its strongest competitor. Top-1 net recovery is the fraction changing from wrong to correct minus the fraction changing from correct to wrong. Full-dose paired restoration uses 5,000 scene-bootstrap resamples for confidence intervals.
 
 ## Blindspot Test
 
@@ -36,13 +34,13 @@ An image is positive if it contains at least one missed evaluation object. A cor
 
 - **Capture@5%:** missed objects in the highest-risk `ceil(0.05 * N)` images divided by missed objects in all `N` images.
 - **AUROC:** probability that a randomly chosen positive image ranks above a negative image, with half credit for tied scores.
-- **AUPRC:** average precision of the image-level failure ranking. It is not detection mAP.
+- **AUPRC:** average precision of the image-level failure ranking.
 - **NAURC:** normalized area under the risk-coverage curve; lower is better. Accept images in increasing risk order. With failure prevalence `p`, `AURC` is the mean cumulative accepted failure rate, and `NAURC = (AURC - A*) / (p - A*)`, where `A* = p + (1-p) log(1-p)` is the continuous oracle reference.
 
 The saved benchmark scores use deterministic empirical rank percentiles. Sorting is stable. Average precision is computed as precision at each positive rank, weighted uniformly over positive images. Metrics with no applicable positive/negative class are reported as undefined.
 
 ## Numerical Settings
 
-The recorded environment uses Python 3.12 and the package versions in `requirements.txt`. Source training summaries were extracted in full precision; target evaluation uses mixed-precision detector inference and stores pooled summaries in float16. Use image batch size 2 for the supplied target manifests. Different padding batches, accelerator kernels, or precision settings can slightly change proposal selection and rankings.
+Use Python 3.12 and the versions in `requirements.txt`. Source training summaries use full precision; target evaluation uses mixed-precision detector inference, float16 pooled summaries, and image batch size 2.
 
-Risk training samples 64 distinct source scenes per update and one available view per scene. The three learning-rate candidates are 0.000125, 0.00025, and 0.0005, with cosine decay and weight decay 0.0001. `configs/training.json` records the validation schedule and the selected checkpoints. A short execution check can be run with `python scripts/train_risk.py --steps 2 --seeds 2027 --device cpu`; this does not reproduce the full training result.
+Risk training uses 20,000 AdamW updates per candidate, sampling 64 distinct source scenes and one available view per scene at each update. The detector and DetSAE remain frozen. The three learning-rate candidates are 0.000125, 0.00025, and 0.0005, with cosine decay and weight decay 0.0001. Source calibration Capture@5% selects checkpoints, with AUROC and earlier updates breaking ties. `configs/training.json` specifies the three seeds, validation schedule, and selected checkpoints.

@@ -1,6 +1,6 @@
 # Comparison Methods
 
-The statistics package contains scores from the common detection-risk benchmark, not numbers copied from the papers' original benchmarks. All methods use the same frozen detector and evaluation cohorts. The generated source styles belong to our method; external methods use the original source images. The applicable trainable comparison heads use the same 20,000-update, batch-64 budget and source-side checkpoint selection.
+The statistics package contains detection-risk scores measured with a shared frozen detector and evaluation cohorts. Our method uses original and generated source views; external methods use original source images. Gradient-trained heads use 20,000 updates, batch size 64, and source-side checkpoint selection.
 
 | Score ID | Method | Original work |
 | --- | --- | --- |
@@ -15,4 +15,4 @@ The statistics package contains scores from the common detection-risk benchmark,
 | `knn5` | KNN-5 | [Out-of-Distribution Detection with Deep Nearest Neighbors](https://proceedings.mlr.press/v162/sun22d.html) |
 | `vim_residual_pca100` | Residual | [ViM: Out-of-Distribution With Virtual-Logit Matching](https://openaccess.thecvf.com/content/CVPR2022/html/Wang_ViM_Out-of-Distribution_With_Virtual-Logit_Matching_CVPR_2022_paper.html) |
 
-LFR and LF-ASH-P75 are two variants of the same work. SAOD denotes its image-level uncertainty score here. Residual uses the PCA residual signal, not the full virtual-logit matching system. ViLU and BTA are evaluated after transferring their failure-prediction inputs to detection. The downloadable comparison statistics support metric recomputation; the model package contains our inference chain.
+LFR and LF-ASH-P75 are variants of one work. SAOD uses its image-level uncertainty score; Residual uses ViM's PCA residual component. ViLU and BTA use detection-based failure-prediction inputs. The statistics package provides comparison scores; the model package provides our inference chain.
