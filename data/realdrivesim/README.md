@@ -42,9 +42,9 @@ YOLO rows are `class_id center_x center_y width height`, with coordinates normal
 To reproduce the released evaluation, use its existing image manifest rather than substituting the complete pool:
 
 ```bash
-python scripts/predict.py --images datasets/realdrivesim-6000/images \
+python code/scripts/predict.py --images datasets/realdrivesim-6000/images \
   --manifest data/splits/realdrivesim.json --output outputs/realdrivesim.pt
-python scripts/evaluate_predictions.py --predictions outputs/realdrivesim.pt \
+python code/scripts/evaluate_predictions.py --predictions outputs/realdrivesim.pt \
   --annotations datasets/realdrivesim-6000/annotations.json
 ```
 

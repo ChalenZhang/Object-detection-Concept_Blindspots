@@ -89,7 +89,9 @@ class ConceptBank:
 
 
 class ImageRiskModel:
-    def __init__(self, model_dir="models", config_dir="configs", device="cuda", amp=True):
+    def __init__(self, model_dir="models", config_dir=None, device="cuda", amp=True):
+        if config_dir is None:
+            config_dir = Path(__file__).resolve().parents[1] / "configs"
         self.device = torch.device(device)
         self.amp = bool(amp and self.device.type == "cuda")
         self.model_dir = Path(model_dir)

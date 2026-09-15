@@ -1,8 +1,11 @@
 import json
+import sys
 import unittest
 from pathlib import Path
 
 import torch
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from concept_blindspots.metrics import binary_auroc, average_precision, normalized_aurc, selected
 from concept_blindspots.model import risk_inputs, RiskMLP

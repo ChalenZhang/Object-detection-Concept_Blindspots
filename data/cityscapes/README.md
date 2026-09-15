@@ -13,7 +13,7 @@ Our style-transferred images are modified Cityscapes images, so we cannot direct
 
 > **Dataset download: Coming soon, subject to authorization.** We are actively seeking permission from the relevant rights holders to release the style-transferred dataset. Download information will be added here once authorization is granted.
 
-The [model and statistics packages](../README.md#packages) are available now.
+The [model and statistics packages](../../README.md#packages) are available now.
 
 ## Dataset Composition
 
@@ -26,7 +26,7 @@ The bank contains **59,488 accepted style-transferred views of 2,975 Cityscapes 
 | Film and games | 3D modeling, post-apocalyptic, science fiction, cyberpunk, AAA game scene |
 | Materials and crafts | Paper cutting, stained glass, building blocks, collage, textile art |
 
-The [style-name list](style_names.txt) provides the corresponding directory names. See the [same-scene overview](../README.md#appearance-transformations) for examples.
+The [style-name list](style_names.txt) provides the corresponding directory names. See the [same-scene overview](../../README.md#appearance-transformations) for examples.
 
 ## How We Generated the Bank
 

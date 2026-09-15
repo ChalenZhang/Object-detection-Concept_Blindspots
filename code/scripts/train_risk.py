@@ -31,7 +31,7 @@ def score(model, inputs, device):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--statistics",type=Path,default=Path("statistics"))
-    parser.add_argument("--configs",type=Path,default=Path("configs"))
+    parser.add_argument("--configs",type=Path,default=Path(__file__).resolve().parents[1]/"configs")
     parser.add_argument("--output",type=Path,default=Path("outputs/retrained_models"))
     parser.add_argument("--seeds",type=int,nargs="+",default=[2027,2028,2029])
     parser.add_argument("--device",default="cuda")

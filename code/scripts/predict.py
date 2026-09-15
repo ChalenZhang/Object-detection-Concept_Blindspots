@@ -18,7 +18,7 @@ def main():
     parser.add_argument("--images", type=Path, required=True)
     parser.add_argument("--manifest", type=Path)
     parser.add_argument("--models", type=Path, default=Path("models"))
-    parser.add_argument("--configs", type=Path, default=Path("configs"))
+    parser.add_argument("--configs", type=Path, default=Path(__file__).resolve().parents[1] / "configs")
     parser.add_argument("--output", type=Path, default=Path("outputs/predictions.pt"))
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--batch-size", type=int, default=2)

@@ -2,7 +2,7 @@
 
 Dataset providers and original papers are linked in the [dataset table](../README.md#datasets). The [RealDriveSim subset](realdrivesim/README.md) is available from this repository's dataset release; obtain other datasets from their original providers.
 
-For the 20-style source bank, see the **[Cityscapes license and generation guide](../Cityscapes/README.md)**, including the authorization status, style composition, and prompt templates.
+For the 20-style source bank, see the **[Cityscapes license and generation guide](cityscapes/README.md)**, including the authorization status, style composition, and prompt templates.
 
 ## Evaluation Subsets
 
@@ -22,7 +22,7 @@ Manifests specify evaluation images and row order. The RealDriveSim manifest sel
 Place the chosen dataset images under a directory. The prediction script searches recursively and resolves filenames against the selected manifest:
 
 ```bash
-python scripts/predict.py --images /path/to/kitti/image_2 \
+python code/scripts/predict.py --images /path/to/kitti/image_2 \
   --manifest data/splits/kitti.json --output outputs/kitti.pt
 ```
 
@@ -42,7 +42,7 @@ The evaluation script accepts a local detection JSON with the following standard
 Boxes use absolute pixel coordinates `[left, top, width, height]`. Image filenames must be unique within the selected manifest. Categories are mapped by name: `Pedestrian` and `Person_sitting` become `person`; `Cyclist` becomes `rider`. Other aliases are specified in the evaluator. Crowd annotations are excluded.
 
 ```bash
-python scripts/evaluate_predictions.py --predictions outputs/kitti.pt \
+python code/scripts/evaluate_predictions.py --predictions outputs/kitti.pt \
   --annotations /path/to/kitti_annotations.json
 ```
 

@@ -5,7 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 EXPECTED = {'Day': 2520, 'Adverse_A': 2580, 'Adverse_B': 900}
 
 

@@ -24,7 +24,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--statistics",type=Path,default=Path("statistics"))
     parser.add_argument("--models",type=Path)
-    parser.add_argument("--config",type=Path,default=Path("configs/concepts.json"))
+    parser.add_argument("--config",type=Path,default=Path(__file__).resolve().parents[1]/"configs/concepts.json")
     parser.add_argument("--device",default="cpu")
     parser.add_argument("--output",type=Path,default=Path("outputs/risk_metrics.csv"))
     args=parser.parse_args();torch.set_num_threads(4)
@@ -33,7 +33,7 @@ def main():
     if not paths: parser.error("No target statistics found")
     for path in paths:
         payload=load_tensor_file(path)
-        methods=dict(payload["scores"])
+        methods={"ours_detsae":payload["scores"]["ours_detsae"]}
         if args.models:
             config=json.loads(args.config.read_text())
             raw=predict_risk(payload["concept"],args.models,config,args.device)
