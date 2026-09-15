@@ -2,6 +2,8 @@
 
 Dataset providers and original papers are linked in the [dataset table](../README.md#datasets). The [RealDriveSim subset](realdrivesim/README.md) is available from this repository's dataset release; obtain other datasets from their original providers.
 
+For the 20-style source bank, see the **[Cityscapes license and generation guide](../Cityscapes/README.md)**, including the authorization status, style composition, and prompt templates.
+
 ## Evaluation Subsets
 
 | Manifest | Selection | Images |

@@ -2,6 +2,10 @@
 
 DetSAE identifies task-relevant concepts inside a frozen object detector. Tracking paired source objects across appearance changes reveals concept clusters associated with excess detection loss. These blindspots then help rank new images by missed-object risk.
 
+## Cityscapes 20-Style Dataset
+
+**Coming soon, subject to authorization.** The [Cityscapes license](https://www.cityscapes-dataset.com/license/) restricts redistribution of original and modified images. We are actively seeking permission to release our 20-style bank. See **[Cityscapes: license, dataset composition, and generation guide](Cityscapes/README.md)** for the specific terms, image-editor options, prompts, and manual quality checks.
+
 ## Packages
 
 Download the following assets from this repository's Releases page:
@@ -53,7 +57,7 @@ The [comparison methods](docs/comparisons.md) list provides original paper links
 
 ![One source scene and its twenty style-transferred views](assets/styles-overview.jpg)
 
-This low-resolution research illustration compares one scene from [Cityscapes](https://www.cityscapes-dataset.com/) with its 20 appearance-transferred views. It illustrates differences in rendering medium, texture, and palette; it is not a downloadable training set. Source imagery belongs to the Cityscapes rights holders. The transformed views were produced for this study. Full-resolution source images, individual style images, and inherited annotations are not included in the packages. The [style-generation guide](data/styles.md) describes the composition and local regeneration procedure under the [Cityscapes terms](https://www.cityscapes-dataset.com/license/).
+This low-resolution research illustration compares one scene from [Cityscapes](https://www.cityscapes-dataset.com/) with its 20 appearance-transferred views. It illustrates differences in rendering medium, texture, and palette. Source imagery belongs to the Cityscapes rights holders. The transformed views were produced for this study. See the [Cityscapes guide](Cityscapes/README.md) for the style composition, generation procedure, and dataset availability.
 
 For copyright, privacy, or other rights concerns about this illustration or any released material, please contact the maintainers through the repository's Issues page. Reported material will be promptly hidden or removed while the concern is reviewed.
 
@@ -61,7 +65,7 @@ For copyright, privacy, or other rights concerns about this illustration or any 
 
 | Dataset | Original publication | Data |
 | --- | --- | --- |
-| Cityscapes | [The Cityscapes Dataset for Semantic Urban Scene Understanding](https://openaccess.thecvf.com/content_cvpr_2016/html/Cordts_The_Cityscapes_Dataset_CVPR_2016_paper.html) | [Website](https://www.cityscapes-dataset.com/) |
+| Cityscapes | [The Cityscapes Dataset for Semantic Urban Scene Understanding](https://openaccess.thecvf.com/content_cvpr_2016/html/Cordts_The_Cityscapes_Dataset_CVPR_2016_paper.html) | [Website](https://www.cityscapes-dataset.com/), [20-style dataset](Cityscapes/README.md) |
 | BDD100K | [BDD100K: A Diverse Driving Dataset for Heterogeneous Multitask Learning](https://openaccess.thecvf.com/content_CVPR_2020/html/Yu_BDD100K_A_Diverse_Driving_Dataset_for_Heterogeneous_Multitask_Learning_CVPR_2020_paper.html) | [Website](https://www.bdd100k.com/) |
 | KITTI | [Are We Ready for Autonomous Driving? The KITTI Vision Benchmark Suite](https://www.cvlibs.net/publications/Geiger2012CVPR.pdf) | [Website](https://www.cvlibs.net/datasets/kitti/) |
 | RealDriveSim | [RealDriveSim: A Realistic Multi-Modal Multi-Task Synthetic Dataset for Autonomous Driving](https://arxiv.org/abs/2506.16319) | [Website](https://realdrivesim.github.io/), [6,000-image subset](data/realdrivesim/README.md) |
