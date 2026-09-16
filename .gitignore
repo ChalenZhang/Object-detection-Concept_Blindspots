@@ -2,8 +2,6 @@ __pycache__/
 *.pyc
 .venv/
 .pytest_cache/
-models/
-statistics/
 outputs/
 datasets/
 downloads/

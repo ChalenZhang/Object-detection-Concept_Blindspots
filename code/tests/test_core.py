@@ -1,5 +1,6 @@
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -8,12 +9,47 @@ import torch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from concept_blindspots.metrics import binary_auroc, average_precision, normalized_aurc, selected
-from concept_blindspots.model import risk_inputs, RiskMLP
+from concept_blindspots.model import risk_inputs, RiskMLP, load_detector_state
 from concept_blindspots.matching import match_class, match_group
 from concept_blindspots.training_utils import SceneViewStream
 
 
 class CoreTests(unittest.TestCase):
+    def test_detector_weight_parts(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            parts = root / "detector_r101"
+            parts.mkdir()
+            torch.save({"backbone.weight": torch.arange(3)}, parts / "backbone.pt")
+            torch.save({"head.weight": torch.ones(2)}, parts / "head.pt")
+            state = load_detector_state(root)
+            self.assertEqual(set(state), {"backbone.weight", "head.weight"})
+            self.assertTrue(torch.equal(state["backbone.weight"], torch.arange(3)))
+            self.assertTrue(torch.equal(state["head.weight"], torch.ones(2)))
+
+    def test_detector_duplicate_parameters_fail(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            parts = root / "detector_r101"
+            parts.mkdir()
+            for name in ("a", "b"):
+                torch.save({"weight": torch.ones(1)}, parts / f"{name}.pt")
+            with self.assertRaisesRegex(ValueError, "Duplicate detector parameters"):
+                load_detector_state(root)
+
+    def test_empty_detector_directory_fails(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "detector_r101").mkdir()
+            with self.assertRaises(FileNotFoundError):
+                load_detector_state(root)
+
+    def test_single_detector_checkpoint(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            torch.save({"weight": torch.arange(2)}, root / "detector_r101.pt")
+            self.assertTrue(torch.equal(load_detector_state(root)["weight"], torch.arange(2)))
+
     def test_input_identity_order(self):
         config=json.loads((Path(__file__).resolve().parents[1]/"configs/concepts.json").read_text())
         x=torch.arange(404).reshape(1,-1)

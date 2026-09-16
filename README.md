@@ -16,22 +16,24 @@ data/
   realdrivesim/        Subset guide and file inventory
   splits/              Evaluation image lists
   README.md            Data preparation and label formats
+models/                Frozen detector, DetSAE, and risk MLPs
+statistics/            Source features and evaluation records
 ```
 
 ## Cityscapes 20-Style Dataset
 
 **Coming soon, subject to authorization.** The [Cityscapes license](https://www.cityscapes-dataset.com/license/) restricts redistribution of original and modified images. We are actively seeking permission to release our 20-style bank. The [Cityscapes guide](data/cityscapes/README.md) provides the specific terms, style composition, generation prompts, and quality checks.
 
-## Packages
+## Models and Statistics
 
-Download the two ZIP files from this repository's Releases page and extract them into the repository root.
+Models and statistics are included as files in the repository and are downloaded with `git clone`. No separate package download or extraction is required.
 
-| File | Contents |
+| Directory | Contents |
 | --- | --- |
-| `concept-blindspots-models-v1.0.zip` | Frozen R101 detector, DetSAE, three risk MLPs, and code |
-| `concept-blindspots-statistics-v1.0.zip` | Source features, concept tests, intervention records, and our six-domain risk scores |
+| `models/` | Frozen R101 detector, DetSAE, and three risk MLPs |
+| `statistics/` | Source features, concept tests, intervention records, and six-domain risk scores |
 
-The archives create `models/` and `statistics/`. The statistics package contains `source_train.pt`, `source_calibration.pt`, `discovery.pt`, `targets/*.pt`, and `interventions/*.csv.gz`.
+The detector weights in `models/detector_r101/` are loaded together automatically. Statistics include `source_train.pt`, `source_calibration.pt`, `discovery.pt`, `targets/*.pt`, and `interventions/*.csv.gz`.
 
 ## Setup and Inference
 
@@ -98,14 +100,14 @@ Please report copyright, privacy, or other rights concerns through the repositor
 | Dataset | Original publication | Data |
 | --- | --- | --- |
 | Cityscapes | [The Cityscapes Dataset for Semantic Urban Scene Understanding](https://openaccess.thecvf.com/content_cvpr_2016/html/Cordts_The_Cityscapes_Dataset_CVPR_2016_paper.html) | [Website](https://www.cityscapes-dataset.com/), [20-style guide](data/cityscapes/README.md) |
-| BDD100K | [BDD100K: A Diverse Driving Dataset for Heterogeneous Multitask Learning](https://openaccess.thecvf.com/content_CVPR_2020/html/Yu_BDD100K_A_Diverse_Driving_Dataset_for_Heterogeneous_Multitask_Learning_CVPR_2020_paper.html) | [Website](https://www.bdd100k.com/) |
+| BDD100K | [BDD100K: A Diverse Driving Dataset for Heterogeneous Multitask Learning](https://openaccess.thecvf.com/content_CVPR_2020/html/Yu_BDD100K_A_Diverse_Driving_Dataset_for_Heterogeneous_Multitask_Learning_CVPR_2020_paper.html) | [Official download guide](https://github.com/bdd100k/bdd100k/blob/master/doc/source/download.rst) |
 | KITTI | [Are We Ready for Autonomous Driving? The KITTI Vision Benchmark Suite](https://www.cvlibs.net/publications/Geiger2012CVPR.pdf) | [Website](https://www.cvlibs.net/datasets/kitti/) |
 | RealDriveSim | [RealDriveSim: A Realistic Multi-Modal Multi-Task Synthetic Dataset for Autonomous Driving](https://arxiv.org/abs/2506.16319) | [Website](https://realdrivesim.github.io/), [subset guide](data/realdrivesim/README.md) |
-| SIM10K | [Driving in the Matrix: Can Virtual Worlds Replace Human-Generated Annotations for Real World Tasks?](https://arxiv.org/abs/1610.01983) | [Website](https://fcav.engin.umich.edu/projects/driving-in-the-matrix) |
+| SIM10K | [Driving in the Matrix: Can Virtual Worlds Replace Human-Generated Annotations for Real World Tasks?](https://arxiv.org/abs/1610.01983) | [Original dataset](https://doi.org/10.7302/e1f1-3d97) |
 | Foggy Cityscapes | [Semantic Foggy Scene Understanding with Synthetic Data](https://arxiv.org/abs/1708.07819) | [Website](https://people.ee.ethz.ch/~csakarid/SFSU_synthetic/) |
 | Rainy Cityscapes | [Depth-Attentional Features for Single-Image Rain Removal](https://openaccess.thecvf.com/content_CVPR_2019/html/Hu_Depth-Attentional_Features_for_Single-Image_Rain_Removal_CVPR_2019_paper.html) | [Website](https://www.cityscapes-dataset.com/downloads/) |
 
-The [RealDriveSim subset](data/realdrivesim/README.md) contains **6,000 original-view images: 2,520 Day, 2,580 Adverse-A, and 900 Adverse-B**. Download its images and labels from the [dataset release](../../releases/tag/realdrivesim-6000-v1.0) and extract all ZIP parts into one directory.
+The [RealDriveSim subset guide](data/realdrivesim/README.md) describes the **6,000 original-view images: 2,520 Day, 2,580 Adverse-A, and 900 Adverse-B**, their labels, and evaluation usage.
 
 ## Terms
 

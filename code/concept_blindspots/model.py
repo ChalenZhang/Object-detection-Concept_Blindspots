@@ -16,6 +16,23 @@ def load_tensor_file(path):
     return torch.load(path, map_location="cpu", weights_only=True)
 
 
+def load_detector_state(model_dir):
+    model_dir = Path(model_dir)
+    directory = model_dir / "detector_r101"
+    if not directory.is_dir():
+        return load_tensor_file(model_dir / "detector_r101.pt")
+    parts = sorted(directory.glob("*.pt"))
+    if not parts:
+        raise FileNotFoundError(f"No detector weights in {directory}")
+    state = {}
+    for path in parts:
+        part = load_tensor_file(path)
+        if state.keys() & part.keys():
+            raise ValueError(f"Duplicate detector parameters in {path.name}")
+        state.update(part)
+    return state
+
+
 class RiskMLP(nn.Module):
     def __init__(self, mean, std, hidden_dim=128, dropout=0.1, groups=5):
         super().__init__()
@@ -100,7 +117,7 @@ class ImageRiskModel:
         self.args = SimpleNamespace(**settings, concept_class_ids=(3, 5, 6))
         backbone = resnet_fpn_backbone(backbone_name="resnet101", weights=None, trainable_layers=3)
         self.detector = FasterRCNN(backbone, num_classes=len(settings["classes"]), min_size=settings["min_size"], max_size=settings["max_size"])
-        self.detector.load_state_dict(load_tensor_file(self.model_dir / "detector_r101.pt"), strict=True)
+        self.detector.load_state_dict(load_detector_state(self.model_dir), strict=True)
         self.detector.roi_heads.score_thresh = settings["score_threshold"]
         self.detector.roi_heads.detections_per_img = settings["detections_per_image"]
         self.detector.to(self.device).eval()
