@@ -89,7 +89,7 @@ A missed object has no one-to-one, correct-class detection with confidence at le
 
 ## Appearance Transformations
 
-![One source scene and its twenty style-transferred views](data/cityscapes/styles-overview.jpg)
+![One source scene and its twenty style-transferred views](data/cityscapes/styles-overview.jpg?raw=1)
 
 One [Cityscapes](https://www.cityscapes-dataset.com/) scene and its 20 style-transferred views. Source imagery belongs to the Cityscapes rights holders; the transformations were produced for this study. See the [generation guide](data/cityscapes/README.md).
 
@@ -100,14 +100,14 @@ Please report copyright, privacy, or other rights concerns through the repositor
 | Dataset | Original publication | Data |
 | --- | --- | --- |
 | Cityscapes | [The Cityscapes Dataset for Semantic Urban Scene Understanding](https://openaccess.thecvf.com/content_cvpr_2016/html/Cordts_The_Cityscapes_Dataset_CVPR_2016_paper.html) | [Website](https://www.cityscapes-dataset.com/), [20-style guide](data/cityscapes/README.md) |
-| BDD100K | [BDD100K: A Diverse Driving Dataset for Heterogeneous Multitask Learning](https://openaccess.thecvf.com/content_CVPR_2020/html/Yu_BDD100K_A_Diverse_Driving_Dataset_for_Heterogeneous_Multitask_Learning_CVPR_2020_paper.html) | [Official download guide](https://github.com/bdd100k/bdd100k/blob/master/doc/source/download.rst) |
+| BDD100K | [BDD100K: A Diverse Driving Dataset for Heterogeneous Multitask Learning](https://openaccess.thecvf.com/content_CVPR_2020/html/Yu_BDD100K_A_Diverse_Driving_Dataset_for_Heterogeneous_Multitask_Learning_CVPR_2020_paper.html) | [Website](http://bdd-data.berkeley.edu/), [Download guide](https://github.com/bdd100k/bdd100k/blob/master/doc/source/download.rst) |
 | KITTI | [Are We Ready for Autonomous Driving? The KITTI Vision Benchmark Suite](https://www.cvlibs.net/publications/Geiger2012CVPR.pdf) | [Website](https://www.cvlibs.net/datasets/kitti/) |
 | RealDriveSim | [RealDriveSim: A Realistic Multi-Modal Multi-Task Synthetic Dataset for Autonomous Driving](https://arxiv.org/abs/2506.16319) | [Website](https://realdrivesim.github.io/), [subset guide](data/realdrivesim/README.md) |
 | SIM10K | [Driving in the Matrix: Can Virtual Worlds Replace Human-Generated Annotations for Real World Tasks?](https://arxiv.org/abs/1610.01983) | [Original dataset](https://doi.org/10.7302/e1f1-3d97) |
 | Foggy Cityscapes | [Semantic Foggy Scene Understanding with Synthetic Data](https://arxiv.org/abs/1708.07819) | [Website](https://people.ee.ethz.ch/~csakarid/SFSU_synthetic/) |
 | Rainy Cityscapes | [Depth-Attentional Features for Single-Image Rain Removal](https://openaccess.thecvf.com/content_CVPR_2019/html/Hu_Depth-Attentional_Features_for_Single-Image_Rain_Removal_CVPR_2019_paper.html) | [Website](https://www.cityscapes-dataset.com/downloads/) |
 
-The [RealDriveSim subset guide](data/realdrivesim/README.md) describes the **6,000 original-view images: 2,520 Day, 2,580 Adverse-A, and 900 Adverse-B**, their labels, and evaluation usage.
+The [RealDriveSim subset guide](data/realdrivesim/README.md) describes the **6,000 original-view images: 2,520 Day, 2,580 Adverse-A, and 900 Adverse-B**, their labels, and evaluation usage. Images and labels are available from this repository's **RealDriveSim 6,000 Images** GitHub Release.
 
 ## Terms
 
