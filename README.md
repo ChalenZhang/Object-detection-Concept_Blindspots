@@ -31,7 +31,7 @@ Models and statistics are included as files in the repository and are downloaded
 | Directory | Contents |
 | --- | --- |
 | `models/` | Frozen R101 detector, DetSAE, and three risk MLPs |
-| `statistics/` | Source features, concept tests, intervention records, and six-domain risk scores |
+| `statistics/` | Source features, concept tests, intervention records, and risk scores across six benchmarks |
 
 The detector weights in `models/detector_r101/` are loaded together automatically. Statistics include `source_train.pt`, `source_calibration.pt`, `discovery.pt`, `targets/*.pt`, and `interventions/*.csv.gz`.
 
@@ -64,7 +64,7 @@ python code/scripts/summarize_interventions.py
 python code/scripts/evaluate_statistics.py --models models --device cuda
 ```
 
-The last command evaluates saved and recomputed risk scores on each domain, writing metrics as fractions to `outputs/risk_metrics.csv`. Omit `--models models` to evaluate saved scores only.
+The last command evaluates saved and recomputed risk scores on each benchmark, writing metrics as fractions to `outputs/risk_metrics.csv`. Omit `--models models` to evaluate saved scores only.
 
 ### Model and Training
 
