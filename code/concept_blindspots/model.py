@@ -40,7 +40,9 @@ class RiskMLP(nn.Module):
         self.heads = MultiTaskHeads(hidden_dim, groups)
 
     def forward(self, concept):
-        return self.heads(self.feature_tower(concept))
+        output = self.heads(self.feature_tower(concept))
+        output["log_error_count"] = output["log_missed_count"]
+        return output
 
     @classmethod
     def from_checkpoint(cls, checkpoint):
@@ -61,17 +63,22 @@ def risk_inputs(concept, config):
 
 
 @torch.inference_mode()
-def predict_risk(concept, model_dir, config, device="cpu", batch_size=256):
+def predict_risk(concept, model_dir, config, device="cpu", batch_size=64, task="fn"):
+    if task not in ("fn", "fp"):
+        raise ValueError("Task must be fn or fp")
     inputs = risk_inputs(concept, config)
     scores = []
     for seed in (2027, 2028, 2029):
-        checkpoint = load_tensor_file(Path(model_dir) / f"risk_seed_{seed}.pt")
+        prefix = "risk_fp" if task == "fp" else "risk"
+        checkpoint = load_tensor_file(Path(model_dir) / f"{prefix}_seed_{seed}.pt")
+        if checkpoint.get("failure_target", "fn") != task:
+            raise ValueError(f"Checkpoint task does not match {task}")
         model = RiskMLP.from_checkpoint(checkpoint).to(device)
         columns = [checkpoint["groups"].index(name) for name in ("car", "person")]
         parts = []
         for begin in range(0, len(inputs), batch_size):
             output = model(inputs[begin:begin + batch_size].to(device))
-            counts = torch.expm1(output["log_missed_count"].clamp(-8, 8)).clamp_min(0)
+            counts = torch.expm1(output["log_error_count"].clamp(-8, 8)).clamp_min(0)
             parts.append(counts[:, columns].sum(dim=1).cpu().double())
         scores.append(torch.cat(parts))
     return ((scores[0] + scores[1] + scores[2]) / len(scores)).float()

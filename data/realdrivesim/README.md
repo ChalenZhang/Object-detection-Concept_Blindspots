@@ -1,6 +1,6 @@
 # RealDriveSim 6,000-Image Subset
 
-This release contains the complete extracted pool of original RealDriveSim images used by this study, not the full RealDriveSim dataset and not its style-transferred variants.
+This release contains 6,000 original RealDriveSim images used for both FN and FP evaluation.
 
 | Component | Images |
 | --- | ---: |
@@ -32,14 +32,14 @@ realdrivesim-6000/
   annotations.json        COCO-style detection annotations
   classes.txt             YOLO class IDs and normalized names
   subset.csv              Complete 6,000-image list
-  evaluation.json         Image order for the released evaluation
+  evaluation.json         Image list accompanying the image archive
   files.json              ZIP part inventory
   README.md
 ```
 
 YOLO rows are `class_id center_x center_y width height`, with coordinates normalized by image dimensions. Class IDs are 0 bicycle, 1 bus, 2 car, 3 motorcycle, 4 person, 5 rider, and 6 truck. The original label abbreviations `Motor` and `Psn.` are written as `motorcycle` and `person` in the category metadata. In `annotations.json`, category IDs are the YOLO IDs plus one; boxes use absolute `[left, top, width, height]` coordinates. Conversion follows the existing evaluation preprocessing, including removal of boxes with width or height at most one pixel.
 
-To reproduce the released evaluation, use its existing image manifest rather than substituting the complete pool:
+Use the repository manifest to evaluate all 6,000 images:
 
 ```bash
 python code/scripts/predict.py --images datasets/realdrivesim-6000/images \
@@ -48,7 +48,7 @@ python code/scripts/evaluate_predictions.py --predictions outputs/realdrivesim.p
   --annotations datasets/realdrivesim-6000/annotations.json
 ```
 
-To obtain predictions for all 6,000 images, omit `--manifest`.
+For FP evaluation, add `--task fp` to the prediction command and choose a separate output file.
 
 ## Source and License
 

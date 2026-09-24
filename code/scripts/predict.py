@@ -1,4 +1,4 @@
-"""Rank local images by predicted missed-object risk."""
+"""Rank local images by predicted detection-error count."""
 import argparse
 import csv
 import json
@@ -15,6 +15,7 @@ from concept_blindspots.model import ImageRiskModel, predict_risk
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--task", choices=("fn", "fp"), default="fn")
     parser.add_argument("--images", type=Path, required=True)
     parser.add_argument("--manifest", type=Path)
     parser.add_argument("--models", type=Path, default=Path("models"))
@@ -51,12 +52,13 @@ def main():
         features.append(concept); detections.extend(pred)
         print(f"images={min(begin+args.batch_size,len(paths))}/{len(paths)}", flush=True)
     concept = torch.cat(features)
-    risk = predict_risk(concept, args.models, model.config, args.device)
+    risk = predict_risk(concept, args.models, model.config, args.device, task=args.task)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     names = [str(path.relative_to(args.images)) for path in paths]
-    torch.save({"images":names,"concept":concept,"risk":risk,"detections":detections}, args.output)
+    torch.save({"task":args.task,"images":names,"concept":concept,"risk":risk,"detections":detections}, args.output)
     with args.output.with_suffix(".csv").open("w", newline="") as handle:
-        writer=csv.writer(handle);writer.writerow(["image", "predicted_missed_objects"])
+        column="predicted_false_positives" if args.task=="fp" else "predicted_missed_objects"
+        writer=csv.writer(handle);writer.writerow(["image", column])
         for index in torch.argsort(risk,descending=True,stable=True).tolist():
             writer.writerow([names[index],float(risk[index])])
 

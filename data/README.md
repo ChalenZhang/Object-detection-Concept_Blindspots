@@ -10,12 +10,12 @@ For the 20-style source bank, see the **[Cityscapes license and generation guide
 | --- | --- | ---: |
 | `splits/bdd100k.json` | Validation images with `timeofday=daytime` and `weather=clear` | 1,764 |
 | `splits/kitti.json` | Labeled object-detection training split, used only for evaluation | 7,481 |
-| `splits/realdrivesim.json` | Retained images from the extracted Day / Adverse-A / Adverse-B pool | 5,493 |
+| `splits/realdrivesim.json` | Complete extracted Day / Adverse-A / Adverse-B pool | 6,000 |
 | `splits/sim10k.json` | All labeled images | 10,000 |
 | `splits/foggy.json` | Validation scenes, beta 0.02 | 500 |
 | `splits/rainy.json` | Alpha 0.02; 12 rain textures for each of 33 scenes | 396 |
 
-Manifests specify evaluation images and row order. The RealDriveSim manifest selects from the [6,000-image subset](realdrivesim/README.md). Rainy and Foggy test appearance changes on Cityscapes validation scenes; Rainy views of one scene share a scene index.
+Manifests specify evaluation images and row order for both FN and FP tasks. The RealDriveSim manifest includes the full [6,000-image subset](realdrivesim/README.md). Rainy and Foggy test appearance changes on Cityscapes validation scenes; Rainy views of one scene share a scene index.
 
 ## Local Image Inference
 
@@ -39,12 +39,22 @@ The evaluation script accepts a local detection JSON with the following standard
 }
 ```
 
-Boxes use absolute pixel coordinates `[left, top, width, height]`. Image filenames must be unique within the selected manifest. Categories are mapped by name: `Pedestrian` and `Person_sitting` become `person`; `Cyclist` becomes `rider`. Other aliases are specified in the evaluator. Crowd annotations are excluded.
+Boxes use absolute pixel coordinates `[left, top, width, height]`. Image filenames must be unique within the selected manifest. Categories are mapped by name: `Pedestrian` and `Psn.` become `person`, `Cyclist` becomes `rider`, and `Motor` becomes `motorcycle`. Crowd annotations are excluded.
 
 ```bash
 python code/scripts/evaluate_predictions.py --predictions outputs/kitti.pt \
   --annotations /path/to/kitti_annotations.json
 ```
+
+The evaluator reads the error type from the prediction file. For KITTI FP evaluation, also supply the original label directory:
+
+```bash
+python code/scripts/evaluate_predictions.py --predictions outputs/kitti_fp.pt \
+  --annotations /path/to/kitti_annotations.json \
+  --kitti-labels /path/to/label_2 --output outputs/kitti_fp_metrics.json
+```
+
+Valid ground-truth matches take priority. Remaining Car and Person detections matched one-to-one to `Van` and `Person_sitting` at IoU >= 0.5 are ignored, as are detections with at least 50% of their area inside `DontCare`.
 
 Evaluation uses Car and Person, except SIM10K, whose detection annotations cover Car. Select `--groups car` for SIM10K.
 

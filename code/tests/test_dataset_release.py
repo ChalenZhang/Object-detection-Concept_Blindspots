@@ -27,8 +27,8 @@ class RealDriveSimReleaseTests(unittest.TestCase):
 
     def test_existing_evaluation_is_covered(self):
         evaluation = json.loads((ROOT / 'data/splits/realdrivesim.json').read_text())
-        self.assertEqual(len(evaluation), 5493)
-        self.assertTrue({r['image'] for r in evaluation} <= {r['image'] for r in self.rows})
+        self.assertEqual(len(evaluation), 6000)
+        self.assertEqual({r['image'] for r in evaluation}, {r['image'] for r in self.rows})
 
     def test_archive_inventory(self):
         inventory = json.loads((ROOT / 'data/realdrivesim/files.json').read_text())

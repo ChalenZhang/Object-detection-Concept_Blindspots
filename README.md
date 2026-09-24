@@ -1,6 +1,6 @@
 # Concept Blindspots in Object Detection
 
-DetSAE extracts task-relevant concepts from a frozen object detector. Paired appearance changes reveal concept blindspots, which help rank new images by missed-object risk.
+DetSAE extracts task-relevant concepts from a frozen object detector. Paired appearance changes reveal concept blindspots. Separate false-negative (FN) and false-positive (FP) predictors use these blindspots to rank images by detection-error risk.
 
 ## Repository
 
@@ -30,10 +30,10 @@ Models and statistics are included as files in the repository and are downloaded
 
 | Directory | Contents |
 | --- | --- |
-| `models/` | Frozen R101 detector, DetSAE, and three risk MLPs |
-| `statistics/` | Source features, concept tests, intervention records, and risk scores across six benchmarks |
+| `models/` | Frozen R101 detector, DetSAE, and three risk MLPs per error type |
+| `statistics/` | Source features and FN/FP labels, concept tests, intervention records, and six-benchmark evaluation records |
 
-The detector weights in `models/detector_r101/` are loaded together automatically. Statistics include `source_train.pt`, `source_calibration.pt`, `discovery.pt`, `targets/*.pt`, and `interventions/*.csv.gz`.
+The detector weights in `models/detector_r101/` are loaded together automatically. `risk_seed_*.pt` contains the FN predictors and `risk_fp_seed_*.pt` the FP predictors. Statistics include `source_train.pt`, `source_calibration.pt`, `discovery.pt`, `targets/*.pt`, and `interventions/*.csv.gz`.
 
 ## Setup and Inference
 
@@ -41,16 +41,19 @@ Use Python 3.12. Run the following commands from the repository root:
 
 ```bash
 python -m pip install -r code/requirements.txt
-python code/scripts/predict.py --images /path/to/images --device cuda
+python code/scripts/predict.py --task fn --images /path/to/images \
+  --output outputs/fn.pt --device cuda
+python code/scripts/predict.py --task fp --images /path/to/images \
+  --output outputs/fp.pt --device cuda
 ```
 
-Predictions are saved to `outputs/predictions.pt`; `outputs/predictions.csv` ranks images by predicted missed-object count. To use a dataset's evaluation image list:
+Each command saves detections, pooled concepts, and risk scores to the chosen `.pt` file, with an adjacent CSV ranking images by predicted error count. To use a dataset's evaluation image list:
 
 ```bash
-python code/scripts/predict.py --images /path/to/images \
-  --manifest data/splits/bdd100k.json --output outputs/bdd100k.pt
-python code/scripts/evaluate_predictions.py --predictions outputs/bdd100k.pt \
-  --annotations /path/to/annotations.json
+python code/scripts/predict.py --task fp --images /path/to/images \
+  --manifest data/splits/bdd100k.json --output outputs/bdd100k_fp.pt
+python code/scripts/evaluate_predictions.py --predictions outputs/bdd100k_fp.pt \
+  --annotations /path/to/annotations.json --output outputs/bdd100k_fp_metrics.json
 ```
 
 See [data preparation](data/README.md) for annotation formats and dataset selections.
@@ -59,18 +62,19 @@ See [data preparation](data/README.md) for annotation formats and dataset select
 
 ```bash
 OPENBLAS_NUM_THREADS=4 python code/scripts/discover_blindspots.py
-python code/scripts/train_risk.py --device cuda
+python code/scripts/train_risk.py --task fn --device cuda
+python code/scripts/train_risk.py --task fp --device cuda
 python code/scripts/summarize_interventions.py
-python code/scripts/evaluate_statistics.py --models models --device cuda
+python code/scripts/evaluate_statistics.py --task both --models models --device cuda
 ```
 
-The last command evaluates saved and recomputed risk scores on each benchmark, writing metrics as fractions to `outputs/risk_metrics.csv`. Omit `--models models` to evaluate saved scores only.
+Training saves selected models to `outputs/retrained_models/`. The last command evaluates saved and recomputed FN/FP scores on each benchmark, writing metrics as fractions to `outputs/risk_metrics.csv`. Use `--models outputs/retrained_models` to evaluate retrained models, or omit `--models` to evaluate saved scores only.
 
 ### Model and Training
 
-The frozen Faster R-CNN R101-FPN detector supplies object features to DetSAE. Each of 101 concept clusters contributes four pooled image channels: maximum, top-three mean, and their confidence-weighted counterparts. The 17 blindspots contribute 68 additional identity-preserving channels. A 472-input MLP with hidden widths 256 and 128, GELU, and dropout 0.1 predicts missed-object occurrence, log missed count, and log quality deficit for five category groups.
+The frozen Faster R-CNN R101-FPN detector supplies object features to DetSAE. Each of 101 concept clusters contributes four pooled image channels: maximum, top-three mean, and their confidence-weighted counterparts. The 17 blindspots contribute 68 additional identity-preserving channels. Separate 472-input MLPs with hidden widths 256 and 128, GELU, and dropout 0.1 predict FN or FP occurrence and log error count for five category groups. The FN predictor also learns log quality deficit. Training combines weighted binary cross-entropy, Smooth-L1 count loss, and pairwise ranking loss with weight 0.2; the additional FN quality loss has weight 0.5.
 
-Risk training uses 20,000 AdamW updates per candidate, batch size 64 with distinct source scenes, and one available view per scene. Source features remain fixed. Learning rates are 0.000125, 0.00025, and 0.0005 with cosine decay and weight decay 0.0001. Source calibration Capture@5% selects checkpoints, with AUROC and earlier updates breaking ties. [Training settings](code/configs/training.json) specify seeds, loss weights, and selected checkpoints. Inference averages the three models' predicted Car+Person missed counts. Target feature extraction uses mixed precision and image batch size 2.
+Risk training uses 20,000 AdamW updates per candidate, batch size 64 with distinct source scenes, and one available view per scene from original Cityscapes and its 20 styled variants. Source features remain fixed. Learning rates are 0.000125, 0.00025, and 0.0005 with cosine decay and weight decay 0.0001. Task-specific Capture@5% on 500 original source calibration images selects checkpoints, with AUROC and earlier updates breaking ties. [FN settings](code/configs/training.json) and [FP settings](code/configs/training_fp.json) specify seeds, loss weights, and selected checkpoints. Inference averages the three models' predicted Car+Person error counts. Target feature extraction uses mixed precision and image batch size 2.
 
 ### Blindspot and Intervention Analysis
 
@@ -80,10 +84,10 @@ Intervention records cover all 17 R101 and 16 R50 blindspots. Each intervention 
 
 ### Metrics
 
-A missed object has no one-to-one, correct-class detection with confidence at least 0.05 and IoU at least 0.5.
+A false negative is a ground-truth object without a correct-class detection at confidence >= 0.05 and IoU >= 0.5. A false positive is an unmatched detection at confidence >= 0.5, after descending-confidence, one-to-one same-class matching at IoU >= 0.5, retaining at most 100 detections per class. KITTI excludes unmatched predictions assigned to `Van`, `Person_sitting`, or `DontCare` using the [annotation instructions](data/README.md#detection-annotations).
 
-- **Capture@5%:** missed objects in the highest-risk `ceil(0.05 * N)` images divided by all missed objects.
-- **AUROC:** probability that an image with a miss ranks above an image without one; tied scores receive half credit.
+- **Capture@5%:** errors of the selected type in the highest-risk `ceil(0.05 * N)` images divided by all errors of that type.
+- **AUROC:** probability that an image containing the selected error type ranks above an image without it; tied scores receive half credit.
 - **AUPRC:** average precision of the image-level failure ranking.
 - **NAURC:** `(AURC - A*) / (p - A*)`, where `p` is image failure prevalence, `A* = p + (1-p) log(1-p)`, and AURC averages cumulative failure rates as images are accepted from lowest to highest risk. Lower is better.
 
