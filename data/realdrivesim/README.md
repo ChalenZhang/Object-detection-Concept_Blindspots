@@ -32,18 +32,18 @@ realdrivesim-6000/
   annotations.json        COCO-style detection annotations
   classes.txt             YOLO class IDs and normalized names
   subset.csv              Complete 6,000-image list
-  evaluation.json         Image list accompanying the image archive
+  evaluation.json         Complete 6,000-image evaluation list
   files.json              ZIP part inventory
   README.md
 ```
 
 YOLO rows are `class_id center_x center_y width height`, with coordinates normalized by image dimensions. Class IDs are 0 bicycle, 1 bus, 2 car, 3 motorcycle, 4 person, 5 rider, and 6 truck. The original label abbreviations `Motor` and `Psn.` are written as `motorcycle` and `person` in the category metadata. In `annotations.json`, category IDs are the YOLO IDs plus one; boxes use absolute `[left, top, width, height]` coordinates. Conversion follows the existing evaluation preprocessing, including removal of boxes with width or height at most one pixel.
 
-Use the repository manifest to evaluate all 6,000 images:
+Use the included evaluation list to evaluate all 6,000 images. It matches `data/splits/realdrivesim.json` in the repository:
 
 ```bash
 python code/scripts/predict.py --images datasets/realdrivesim-6000/images \
-  --manifest data/splits/realdrivesim.json --output outputs/realdrivesim.pt
+  --manifest datasets/realdrivesim-6000/evaluation.json --output outputs/realdrivesim.pt
 python code/scripts/evaluate_predictions.py --predictions outputs/realdrivesim.pt \
   --annotations datasets/realdrivesim-6000/annotations.json
 ```
@@ -54,4 +54,4 @@ For FP evaluation, add `--task fp` to the prediction command and choose a separa
 
 **RealDriveSim: A Realistic Multi-Modal Multi-Task Synthetic Dataset for Autonomous Driving**, Arpit Jadon, Haoran Wang, Phillip Thomas, Michael Stanley, S. Nathaniel Cibik, Rachel Laurat, Omar Maher, Lukas Hoyer, Ozan Unal, and Dengxin Dai. IEEE Intelligent Vehicles Symposium, 2025. [Paper](https://arxiv.org/abs/2506.16319) | [Original dataset](https://realdrivesim.github.io/) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-Credit for the source images and annotations belongs to the RealDriveSim authors. This release selects and repackages an extracted image pool, with detection labels converted to a seven-class YOLO representation and an additional COCO-style JSON. The packaged PNG images and YOLO label files are copied without modification from the original-view pool used in our experiments; no resizing, recompression, or style transfer is applied during packaging. Category names are standardized in the accompanying metadata. This redistribution does not imply endorsement by the dataset authors. The images and derived detection annotations remain under CC BY 4.0, without additional use restrictions.
+Images and annotations are credited to the RealDriveSim authors and distributed under CC BY 4.0. PNG images and YOLO labels are copied unchanged from the selected pool; COCO annotations and standardized category names are supplied for evaluation. Redistribution does not imply endorsement by the dataset authors.

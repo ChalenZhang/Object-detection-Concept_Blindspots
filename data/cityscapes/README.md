@@ -1,6 +1,6 @@
 # Cityscapes 20-Style Dataset
 
-We thank the Cityscapes team and contributors for creating and maintaining this valuable resource for urban scene understanding. We respect their work and the conditions under which it is shared. Our style bank builds on [Cityscapes](https://www.cityscapes-dataset.com/), introduced in [The Cityscapes Dataset for Semantic Urban Scene Understanding](https://openaccess.thecvf.com/content_cvpr_2016/html/Cordts_The_Cityscapes_Dataset_CVPR_2016_paper.html).
+We thank the Cityscapes team and contributors for creating and maintaining this resource. Our style bank builds on [Cityscapes](https://www.cityscapes-dataset.com/), introduced in [The Cityscapes Dataset for Semantic Urban Scene Understanding](https://openaccess.thecvf.com/content_cvpr_2016/html/Cordts_The_Cityscapes_Dataset_CVPR_2016_paper.html).
 
 ## License and Availability
 
@@ -11,7 +11,7 @@ The official [Cityscapes Terms and Conditions](https://www.cityscapes-dataset.co
 
 Our style-transferred images are modified Cityscapes images, so we cannot directly distribute the 20-style image bank under these terms. Original images and inherited annotations must also be obtained through the official provider.
 
-> **Dataset download: Coming soon, subject to authorization.** We are actively seeking permission from the relevant rights holders to release the style-transferred dataset. Download information will be added here once authorization is granted.
+**Availability:** Distribution of the style-transferred bank is subject to authorization from the Cityscapes rights holders.
 
 The [models and statistics](../../README.md#models-and-statistics) are included in this repository.
 

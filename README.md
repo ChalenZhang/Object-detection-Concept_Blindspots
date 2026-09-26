@@ -22,11 +22,11 @@ statistics/            Source features and evaluation records
 
 ## Cityscapes 20-Style Dataset
 
-**Coming soon, subject to authorization.** The [Cityscapes license](https://www.cityscapes-dataset.com/license/) restricts redistribution of original and modified images. We are actively seeking permission to release our 20-style bank. The [Cityscapes guide](data/cityscapes/README.md) provides the specific terms, style composition, generation prompts, and quality checks.
+Redistribution of the 20-style bank requires authorization from the Cityscapes rights holders. The [Cityscapes guide](data/cityscapes/README.md) provides the license terms, style composition, generation prompts, and quality checks.
 
 ## Models and Statistics
 
-Models and statistics are included as files in the repository and are downloaded with `git clone`. No separate package download or extraction is required.
+Models and statistics are stored directly in the repository.
 
 | Directory | Contents |
 | --- | --- |
@@ -115,6 +115,4 @@ The [RealDriveSim subset guide](data/realdrivesim/README.md) describes the **6,0
 
 ## Terms
 
-Code is provided under the [MIT license](LICENSE). Checkpoints and statistics are for non-commercial research, subject to the original dataset terms. The [Cityscapes terms](https://www.cityscapes-dataset.com/license/) restrict image redistribution; see the [Cityscapes guide](data/cityscapes/README.md#license-and-availability). The overview illustration retains its source image rights and is outside the software license.
-
-The RealDriveSim subset and its detection annotations are distributed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), independently of the checkpoint and statistics terms. See the [attribution and processing notice](data/realdrivesim/README.md#source-and-license).
+Code is provided under the [MIT license](LICENSE). Checkpoints and statistics are for non-commercial research, subject to the original dataset terms. Dataset images retain their source rights and are not covered by the software license; see the [Cityscapes terms](data/cityscapes/README.md#license-and-availability) and [RealDriveSim attribution and CC BY 4.0 notice](data/realdrivesim/README.md#source-and-license).
